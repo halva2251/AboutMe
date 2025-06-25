@@ -114,60 +114,69 @@ footer {
   background-color: var(--primary-dark);
   color: white;
   padding: 0.75rem 1rem;
-  margin: 0 0 0 0;
+  margin: 0 0 2rem 0;
   font-size: 1.2rem;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px;
 }
 
-.projects-table {
-  width: 100%;
-  border-collapse: collapse;
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
   background-color: var(--primary-dark);
   color: white;
-  border-radius: 0 0 8px 8px;
-  overflow: hidden;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.projects-table th {
-  background-color: #34495e;
-  padding: 1rem;
-  text-align: left;
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.project-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.project-description {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  color: #ecf0f1;
+}
+
+.project-tech {
   font-weight: bold;
-  border-bottom: 2px solid #2c3e50;
+  color: #f39c12;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
 }
 
-.projects-table td {
-  padding: 1rem;
-  border-bottom: 1px solid #34495e;
-  vertical-align: top;
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
-.projects-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.projects-table tbody tr:hover {
-  background-color: #34495e;
-}
-
-.projects-table a {
+.project-links a {
   color: #f39c12;
   text-decoration: none;
   font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: 2px solid #f39c12;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
 }
 
-.projects-table a:hover {
-  color: #e67e22;
-  text-decoration: underline;
-}
-
-.projects-table td:first-child {
-  font-weight: bold;
-  min-width: 120px;
-}
-
-.projects-table td:last-child {
-  min-width: 150px;
+.project-links a:hover {
+  background-color: #f39c12;
+  color: var(--primary-dark);
 }
 
 /* Skills page styling */
@@ -334,13 +343,21 @@ details[open] summary {
     margin: 0.5rem 0;
   }
   
-  .projects-table {
-    font-size: 0.9rem;
+  .projects-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
-  .projects-table th,
-  .projects-table td {
-    padding: 0.75rem 0.5rem;
+  .project-card {
+    padding: 1rem;
+  }
+  
+  .project-links {
+    flex-direction: column;
+  }
+  
+  .project-links a {
+    text-align: center;
   }
   
   .contact-icons {
