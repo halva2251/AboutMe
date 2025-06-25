@@ -76,9 +76,24 @@ nav a.active {
 }
 
 .sidebar img {
-  max-width: 100%;
-  border-radius: 50%;
+  max-width: 50%;
+  border-radius: 10%;
   margin-bottom: 1rem;
+}
+
+.sidebar .image-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar .image-gallery img {
+  width: 100%;
+  max-width: none;
+  border-radius: 8px;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .content {
@@ -88,6 +103,202 @@ nav a.active {
 footer {
   text-align: center;
   padding: 1rem;
+}
+
+/* Projects page styling */
+.projects-section {
+  margin-top: 2rem;
+}
+
+.projects-section h3 {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: 0.75rem 1rem;
+  margin: 0 0 0 0;
+  font-size: 1.2rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--primary-dark);
+  color: white;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+}
+
+.projects-table th {
+  background-color: #34495e;
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 2px solid #2c3e50;
+}
+
+.projects-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #34495e;
+  vertical-align: top;
+}
+
+.projects-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.projects-table tbody tr:hover {
+  background-color: #34495e;
+}
+
+.projects-table a {
+  color: #f39c12;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.projects-table a:hover {
+  color: #e67e22;
+  text-decoration: underline;
+}
+
+.projects-table td:first-child {
+  font-weight: bold;
+  min-width: 120px;
+}
+
+.projects-table td:last-child {
+  min-width: 150px;
+}
+
+/* Skills page styling */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.skills-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+}
+
+.skills-list li::before {
+  content: '•';
+  color: #f39c12;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+details {
+  margin-top: 1rem;
+}
+
+details summary {
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+details summary:hover {
+  color: var(--support-blue);
+}
+
+details[open] summary {
+  margin-bottom: 1.5rem;
+}
+
+/* Contact section styling */
+.contact-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #ddd;
+}
+
+.contact-section h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.contact-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.contact-icon-link {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-dark);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-icon-link:hover {
+  background-color: var(--accent-teal);
+  transform: translateY(-2px);
+}
+
+.contact-icon-link i {
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* Tooltip styling */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-dark);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+  z-index: 1000;
+}
+
+[data-tooltip]:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--primary-dark);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: -5px;
+  z-index: 1000;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (max-width: 768px) {
@@ -100,5 +311,18 @@ footer {
   }
   nav li {
     margin: 0.5rem 0;
+  }
+  
+  .projects-table {
+    font-size: 0.9rem;
+  }
+  
+  .projects-table th,
+  .projects-table td {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .contact-icons {
+    justify-content: center;
   }
 }
